@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block content %}
+<a href="/add" class="btn btn-primary mb-3">Add Expense</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Amount</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for expense in expenses %}
+        <tr>
+            <td>{{ expense[1] }}</td>
+            <td>{{ expense[2] }}</td>
+            <td>{{ expense[3] }}</td>
+            <td>{{ expense[4] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h3>Expenses by Category</h3>
+<canvas id="categoryChart"></canvas>
+
+<h3 class="mt-4">Expenses by Date</h3>
+<canvas id="dateChart"></canvas>
+
+<script>
+    const categories = {{ categories | tojson }};
+    const dates = {{ dates | tojson }};
+
+    new Chart(document.getElementById("categoryChart"), {
+        type: "pie",
+        data: {
+            labels: Object.keys(categories),
+            datasets: [{ data: Object.values(categories), backgroundColor: ["#ff6384", "#36a2eb", "#ffce56", "#4caf50", "#9c27b0"] }]
+        }
+    });
+
+    new Chart(document.getElementById("dateChart"), {
+        type: "bar",
+        data: {
+            labels: Object.keys(dates),
+            datasets: [{ data: Object.values(dates), backgroundColor: "#36a2eb" }]
+        }
+    });
+</script>
+{% endblock %}
