@@ -100,7 +100,6 @@ kubectl get svc expense-service
 
 ```
    Developer → GitHub Repo → Jenkins Pipeline → DockerHub → EKS → LoadBalancer → User
-<img width="457" height="639" alt="jenkins_eks_expense_tracker_architecture" src="https://github.com/user-attachments/assets/e9f0c6c7-a447-45e4-8c4a-f97a1280c330" />
 
 ```
 
@@ -134,4 +133,5 @@ http://<elb-dns-name>
 ✔ Creating an **end-to-end CI/CD pipeline**
 
 ---
+<img width="457" height="639" alt="jenkins_eks_expense_tracker_architecture" src="https://github.com/user-attachments/assets/82beaa3d-be74-4438-bab5-ebe34886c3be" />
 
