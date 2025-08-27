@@ -41,8 +41,8 @@ pipeline {
                 script {
                     writeFile file: 'kubeconfig', text: KUBE_CONFIG_CREDENTIALS
                     sh 'export KUBECONFIG=$WORKSPACE/kubeconfig'
-                    sh 'kubectl apply -f deployment.yaml'
-                    sh 'kubectl apply -f service.yaml'
+                    sh 'kubectl apply -f deployment.yaml -n test'
+                    sh 'kubectl apply -f service.yaml -n test'
                 }
             }
         }
